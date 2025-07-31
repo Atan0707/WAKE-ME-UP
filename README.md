@@ -1,4 +1,4 @@
-# WAKE-ME-UP-HOMIES
+# WAKE-ME-UP
 
 Automate wake up message for whatsapp. Schedule message for your homies to wake you up in case your clock is not working 😂
 
