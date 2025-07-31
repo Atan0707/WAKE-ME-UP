@@ -1,6 +1,6 @@
-# WAKE ME UP
+# WAKE-ME-UP-HOMIES
 
-Just another random stuff build to ask your homies to wake you up set time.
+Automate wake up message for whatsapp. Schedule message for your homies to wake you up in case your clock is not working 😂
 
 ## How to use
 
