@@ -1,6 +1,7 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const dotenv = require('dotenv');
+const { wakeUpTime, message } = require('./config');
 dotenv.config();
 
 const client = new Client({
@@ -46,7 +47,7 @@ function checkTimeAndSendMessage() {
     const currentDay = now.toDateString(); // Get current date as string
 
     // Check if it's 1:00 PM (13:00) and message hasn't been sent today
-    if (currentHour === 13 && currentMinute === 0 && !messageSentToday) {
+    if (currentHour === wakeUpTime && currentMinute === 0 && !messageSentToday) {
         sendDailyMessage();
         messageSentToday = true;
         console.log(`Message sent for ${currentDay}`);
@@ -62,7 +63,7 @@ function checkTimeAndSendMessage() {
 async function sendDailyMessage() {
     try {
         const chatId = `${process.env.NUMBER}@c.us`; // WhatsApp chat ID format
-        await client.sendMessage(chatId, process.env.MESSAGE);
+        await client.sendMessage(chatId, message);
         console.log('Daily message sent successfully!');
     } catch (error) {
         console.error('Error sending daily message:', error);
