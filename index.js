@@ -5,6 +5,9 @@ dotenv.config();
 
 const client = new Client({
     authStrategy: new LocalAuth(),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    }
 });
 
 // Track if message was already sent today
@@ -13,7 +16,6 @@ let isClientReady = false;
 
 client.on('qr', (qr) => {
     // Generate and scan this code with your phone
-    console.log(process.env.TEST);
     console.log('\n=== QR CODE FOR WHATSAPP ===');
     console.log('Scan the QR code below with your phone:');
     qrcode.generate(qr, { small: true });
